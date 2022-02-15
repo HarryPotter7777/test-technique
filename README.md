@@ -15,3 +15,4 @@ Le projet utilise parcel, il faut démarrer le serveur local
 - React, react-router, redux et react-thunk.
 - Material UI
 - Parcel
+- NPM
