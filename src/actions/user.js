@@ -14,7 +14,7 @@ export const getUsers = () => {
         dispatch({ type: "user/fetch", data: data });
       })
       .catch((err) => {
-        dispatch({ type: "error/add", error: err.response.data });
+        dispatch({ type: "error/add", data: err.response.data });
       });
     } else {
       dispatch({ type: "user/fetch", data: JSON.parse(localStorage['employees']) });

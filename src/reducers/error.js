@@ -1,5 +1,5 @@
 const initialState = {
-    error: null
+  data: null,
 };
 
 export default function error(state = initialState, action = {}) {
@@ -7,7 +7,7 @@ export default function error(state = initialState, action = {}) {
     case "error/add":
       return {
         ...state,
-        error: action.error,
+        data: action.data,
       };
 
     case "error/clear":

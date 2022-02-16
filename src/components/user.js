@@ -10,6 +10,8 @@ import Button from "@mui/material/Button";
 import ListItemText from "@mui/material/ListItemText";
 import TextField from "@mui/material/TextField";
 import { list } from "../style/index";
+import Alert from "@mui/material/Alert";
+import Stack from "@mui/material/Stack";
 
 class User extends Component {
   state = {
@@ -52,7 +54,15 @@ class User extends Component {
     return (
       <div>
         <Container>
-          <Box sx={{ bgcolor: "#fafafa", px: 6, py: 2 }}>
+          <Box sx={{ bgcolor: "#fafafa", px: 6, py: 2, minHeight: "100vh" }}>
+            {this.props.error && this.props.error.message && (
+              <Stack sx={{ width: "100%" }} spacing={2}>
+                <Alert severity="error">
+                  Erreur: {this.props.error.message}... Veuillez actualiser la
+                  page.
+                </Alert>
+              </Stack>
+            )}
             <List>
               {this.props.users &&
                 Array.isArray(this.props.users) &&
@@ -64,7 +74,10 @@ class User extends Component {
                         defaultValue={user.employee_name}
                         onChange={this.handleChange.bind(this, user)}
                       />
-                      <ListItemText primary={user.newName} className={classes.space}/>
+                      <ListItemText
+                        primary={user.newName}
+                        className={classes.space}
+                      />
                       <Button
                         variant="outlined"
                         onClick={this.update.bind(this, user)}
@@ -85,6 +98,7 @@ class User extends Component {
 const mapStateToProps = (state) => {
   return {
     users: state.users.data,
+    error: state.error.data,
   };
 };
 
