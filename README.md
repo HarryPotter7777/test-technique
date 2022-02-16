@@ -1,6 +1,7 @@
-## Installation
+## Prérequis
+- Node & npm
 
-Le dossier node_modules est inclus, l'installtion doit être rapide.
+## Installation
 ```bash
   git clone https://github.com/HarryPotter7777/test-technique.git
   cd test-technique && npm i
